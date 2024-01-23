@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
-import { ShowTodo } from './components/ShowTodo'
 import { Todo } from './models/Todo'
+import { Todos } from './components/Todos'
 
 function App() {
 
@@ -14,9 +14,7 @@ function App() {
     <>
       <h1>TO DO LIST</h1>
       <ul>
-        {todos.map((todo) => {
-          return < ShowTodo todo={todo} />
-        })}
+        < Todos todos={todos} />
       </ul>
     </>
   )
