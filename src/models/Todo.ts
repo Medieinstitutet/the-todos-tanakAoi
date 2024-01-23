@@ -1,8 +1,9 @@
 export class Todo {
     constructor (
-        public deadline: number,
+        public date: string,
         public task: string,
-        public isDone: boolean,
-        public priority: number
+        public deadline: string,
+        public priority: number,
+        public isDone: boolean
     ) {}
 }
