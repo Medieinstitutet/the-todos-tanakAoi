@@ -1,9 +1,36 @@
+import { useState } from 'react'
 import './App.css'
+import { Todo } from './models/Todo'
+import { Todos } from './components/Todos'
+import { AddTodo } from './components/AddTodo'
 
 function App() {
 
+  const [todos, setTodos] = useState<Todo[]>([
+    // JSON.parse(localStorage.getItem("todo") || "[]")
+  ])
+
+  // const changeTodos = (newTodos: Todo[]) => {
+  //   setTodos(newTodos)
+  //   // localStorage.setItem("todos", JSON.stringify(setTodos(newTodos)))
+  // }
+
+  const addTodo = (createdTodo: Todo) => {
+    setTodos([...todos, createdTodo])
+  }
+  console.log(todos);
+  
+
   return (
-    <></>
+    <>
+      <h1>TO DO LIST</h1>
+      <ul>
+        < Todos todos={todos} 
+        // changedTodos={changeTodos} 
+        />
+      </ul>
+      < AddTodo addTodo={addTodo} />
+    </>
   )
 }
 
