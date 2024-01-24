@@ -1,25 +1,28 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { Todo } from "../models/Todo"
-import { RemoveTodo } from "./RemoveTodo";
+// import { RemoveTodo } from "./RemoveTodo";
 import { ShowTodo } from "./ShowTodo";
 
 interface ITodosProps {
     todos: Todo[],
-    changeTodos: (newTodos: Todo[]) => void
+    // changedTodos: (newTodos: Todo[]) => void
 };
 
 export const Todos = (props: ITodosProps) => {
 
-    const [newTodos, setNewTodos] = useState(props.todos)
-
-    const changeTodos = (todoId: number) => {
-
-        if( todoId ) {
-            setNewTodos(newTodos.filter((todo) => todo.todoId !== todoId))
-        }
+    // const [newTodos, setNewTodos] = useState<Todo[]>(props.todos)
+    // console.log(newTodos);
+    
+    // const changeTodos = (task: string) => {
         
-        props.changeTodos(newTodos)
-    }
+    //     // if( task ) {
+    //     //     setNewTodos(newTodos.filter((todo) => {
+    //     //         todo.task !== task
+    //     //     }))
+    //     //     props.changedTodos(props.todos)
+    //     // }
+       
+    // }
     
     return (
         <>
@@ -27,7 +30,7 @@ export const Todos = (props: ITodosProps) => {
                 return (
                     <>
                         < ShowTodo todo={todo} />
-                        < RemoveTodo todo={todo} removeTodo={changeTodos} />
+                        {/* < RemoveTodo todo={todo} removedTodo={() => {changeTodos(todo.task)}} /> */}
                     </>
                 )
             })}

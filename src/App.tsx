@@ -10,20 +10,24 @@ function App() {
     // JSON.parse(localStorage.getItem("todo") || "[]")
   ])
 
-  const changeTodos = (newTodos: Todo[]) => {
-    setTodos(newTodos)
-    // localStorage.setItem("todos", JSON.stringify(setTodos(newTodos)))
-  }
+  // const changeTodos = (newTodos: Todo[]) => {
+  //   setTodos(newTodos)
+  //   // localStorage.setItem("todos", JSON.stringify(setTodos(newTodos)))
+  // }
 
   const addTodo = (createdTodo: Todo) => {
     setTodos([...todos, createdTodo])
   }
+  console.log(todos);
+  
 
   return (
     <>
       <h1>TO DO LIST</h1>
       <ul>
-        < Todos todos={todos} changeTodos={changeTodos} />
+        < Todos todos={todos} 
+        // changedTodos={changeTodos} 
+        />
       </ul>
       < AddTodo addTodo={addTodo} />
     </>

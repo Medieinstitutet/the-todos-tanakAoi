@@ -1,14 +1,14 @@
-import { ChangeEvent, FormEvent, useState } from "react"
+import { ChangeEvent, FormEvent, useId, useState } from "react"
 import { Todo } from "../models/Todo"
 
 interface IAddTodoProps {
-    addTodo: (createdTodo: Todo) => void
+    addTodo: (todo: Todo) => void
 }
 
 export const AddTodo = (props: IAddTodoProps) => {
 
-    const [createdTodo, setCreatedTodo] = useState<Todo>(new Todo(Date.now(), new Date().toLocaleDateString(), "", "", 1, false))
-
+    const [createdTodo, setCreatedTodo] = useState<Todo>(new Todo(new Date().toLocaleDateString(), "", "", 1, false))
+    
     const handleChange = ( e: ChangeEvent<HTMLInputElement> ) => {
         
         if( e.target.type === "text") {
