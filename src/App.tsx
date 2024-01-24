@@ -9,11 +9,7 @@ function App() {
   const [todos, setTodos] = useState<Todo[]>(
     JSON.parse(localStorage.getItem("todos") || "[]")
   )
-
-  // const changeTodos = (newTodos: Todo[]) => {
-  //   setTodos(newTodos)
-  // }
-
+  
   const addTodo = (createdTodo: Todo) => {
     setTodos([...todos, createdTodo])
   }
@@ -24,9 +20,7 @@ function App() {
     <>
       <h1>TO DO LIST</h1>
       <ul>
-        < Todos todos={todos} 
-        // changedTodos={changeTodos} 
-        />
+        < Todos todos={todos} />
       </ul>
       < AddTodo addTodo={addTodo} />
     </>
