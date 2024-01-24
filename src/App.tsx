@@ -6,21 +6,20 @@ import { AddTodo } from './components/AddTodo'
 
 function App() {
 
-  const [todos, setTodos] = useState<Todo[]>([
-    // JSON.parse(localStorage.getItem("todo") || "[]")
-  ])
+  const [todos, setTodos] = useState<Todo[]>(
+    JSON.parse(localStorage.getItem("todos") || "[]")
+  )
 
   // const changeTodos = (newTodos: Todo[]) => {
   //   setTodos(newTodos)
-  //   // localStorage.setItem("todos", JSON.stringify(setTodos(newTodos)))
   // }
 
   const addTodo = (createdTodo: Todo) => {
     setTodos([...todos, createdTodo])
   }
-  console.log(todos);
-  
 
+  localStorage.setItem("todos", JSON.stringify(todos))
+  
   return (
     <>
       <h1>TO DO LIST</h1>
