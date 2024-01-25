@@ -14,9 +14,21 @@ function App() {
     setTodos(newTodos);
   };
   
-  const addTodo = (createdTodo: Todo) => {
-    setTodos([...todos, createdTodo]);
+  const addNewTodo = (newTodo: Todo) => {
+    setTodos([...todos, newTodo]);
   };
+
+  const toggleChecked = (checkedTask: string) => {
+    setTodos(
+      todos.map((todo) => {
+        if( todo.task === checkedTask ) {
+          return {...todo, isDone: !todo.isDone}
+        } else {
+          return todo
+        }
+      })
+    )
+  }
 
   localStorage.setItem("todos", JSON.stringify(todos));
   
@@ -24,9 +36,9 @@ function App() {
     <>
       <h1 key="title">TO DO LIST</h1>
       <ul>
-        < Todos todos={todos} newTodos={changeTodos} key="todos" />
+        < Todos todos={todos} newTodos={changeTodos} checkTodo={toggleChecked} key="todos" />
       </ul>
-      < AddTodo addTodo={addTodo} key="addtodo" />
+      < AddTodo addTodo={addNewTodo} key="addtodo" />
     </>
   );
 };
