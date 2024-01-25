@@ -8,23 +8,27 @@ function App() {
 
   const [todos, setTodos] = useState<Todo[]>(
     JSON.parse(localStorage.getItem("todos") || "[]")
-  )
+  );
+
+  const changeTodos = (newTodos: Todo[]) => {
+    setTodos(newTodos);
+  };
   
   const addTodo = (createdTodo: Todo) => {
-    setTodos([...todos, createdTodo])
-  }
+    setTodos([...todos, createdTodo]);
+  };
 
-  localStorage.setItem("todos", JSON.stringify(todos))
+  localStorage.setItem("todos", JSON.stringify(todos));
   
   return (
     <>
-      <h1>TO DO LIST</h1>
+      <h1 key="title">TO DO LIST</h1>
       <ul>
-        < Todos todos={todos} />
+        < Todos todos={todos} newTodos={changeTodos} key="todos" />
       </ul>
-      < AddTodo addTodo={addTodo} />
+      < AddTodo addTodo={addTodo} key="addtodo" />
     </>
-  )
-}
+  );
+};
 
 export default App
