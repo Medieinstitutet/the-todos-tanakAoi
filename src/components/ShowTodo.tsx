@@ -14,12 +14,14 @@ export const ShowTodo = (props: IShowTodoProps) => {
 
     return (
         <>
-            <li key={props.todo.task}>
-                <span>{props.todo.date}</span>
-                <p>{props.todo.task}</p>
-                <p>{props.todo.deadline}</p>
-                <input type="range" min="1" max="5" step="1" value={props.todo.priority} readOnly />
-                < CheckTodo todo={props.todo} checkTodo={checkTodo} />  
+            <li className="item" key={props.todo.task}>
+                <span className="item__date">created: {props.todo.date}</span>
+                <p className="item__task">{props.todo.task}</p>
+                <p className="item__due-date">Due date: {props.todo.dueDate}</p>
+                <input className="item__priority" type="range" min="1" max="5" step="1" value={props.todo.priority} readOnly />
+                <div>
+                    < CheckTodo todo={props.todo} checkTodo={checkTodo} />
+                </div>
             </li>
         </>
     );
