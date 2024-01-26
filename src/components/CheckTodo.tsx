@@ -9,10 +9,22 @@ interface IChangeTodoProps {
 export const CheckTodo = (props: IChangeTodoProps) => {
 
     const handleChange = ( e: ChangeEvent<HTMLInputElement> ) => {
+
+        if( e.target.nextElementSibling !== null ) {
+            if ( e.target.checked === true ) {
+                e.target.nextElementSibling.textContent = "check_box"
+            } else {
+                e.target.nextElementSibling.textContent = "check_box_outline_blank"
+            }
+        }
+
         props.checkTodo(e.target.name)
     };
 
     return(
-        <input type="checkbox" name={props.todo.task} checked={props.todo.isDone} onChange={handleChange} />
+        <label className="item__checked">
+            <input type="checkbox" name={props.todo.task} checked={props.todo.isDone} onChange={handleChange} />
+            <span id="checkbox" className="material-symbols-outlined">{props.todo.isDone ? "check_box" : "check_box_outline_blank"}</span>
+        </label>
     )
 }

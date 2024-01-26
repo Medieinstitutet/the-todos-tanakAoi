@@ -29,13 +29,13 @@ export const SortTodos = (props: ISortTodosProps) => {
 
     return(
         <>
-            <div>
-                <select name="" id="" onChange={handleChange}>
+            <div className="sort">
+                <select className="sort__options" name="" id="" onChange={handleChange}>
                     <option value="">--Sort by---</option>
                     <option value="dueDate">Due date</option>
                     <option value="priority">Priority</option>
                 </select>
-                <button onClick={handleClick}>Sort</button>
+                <button className="button button__sort" onClick={handleClick}>Sort</button>
             </div>
         </>
     )

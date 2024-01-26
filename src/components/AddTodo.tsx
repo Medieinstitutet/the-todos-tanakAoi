@@ -12,7 +12,7 @@ export const AddTodo = (props: IAddTodoProps) => {
     );
     
     const handleChange = ( e: ChangeEvent<HTMLInputElement> ) => {
-        
+
         if( e.target.type === "text") {
             setCreatedTodo({...createdTodo, [e.target.name]: e.target.value});
         };
@@ -33,11 +33,20 @@ export const AddTodo = (props: IAddTodoProps) => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input type="text" name="task" value={createdTodo.task} onChange={handleChange} />
-            <input type="date" name="dueDate" value={createdTodo.dueDate} onChange={handleChange} />
-            <input type="range" name="priority" min="1" max="5" step="1" value={createdTodo.priority} onChange={handleChange} />
-            <button>Save</button>
-        </form>
+        <div className="add">
+            <h2 className="add__title">Add Todo:</h2>
+            <form className="add__form" onSubmit={handleSubmit}>
+                <div>
+                    <input type="text" name="task" className="add__input" placeholder="Task" value={createdTodo.task} onChange={handleChange} required />
+                    <input type="date" name="dueDate" className="add__input" value={createdTodo.dueDate} onChange={handleChange} required />
+                </div>
+                <div>
+                    <label className="add__priority">
+                        <span>Priority:</span><input type="range" name="priority" min="1" max="5" step="1" value={createdTodo.priority} onChange={handleChange} />
+                    </label>
+                    <button className="button button__save">Save</button>
+                </div>
+            </form>
+        </div>
     );
 };

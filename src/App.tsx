@@ -35,10 +35,8 @@ function App() {
   return (
     <div className='container'>
       <h1 key="title">TO DO LIST</h1>
-      <ul className='list'>
-        < Todos todos={todos} checkTodo={toggleChecked} updateTodos={updateTodos} />
-      </ul>
       < AddTodo addTodo={addNewTodo} key="addtodo" />
+      < Todos todos={todos} checkTodo={toggleChecked} updateTodos={updateTodos} />
     </div>
   );
 };

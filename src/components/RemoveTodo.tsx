@@ -17,7 +17,7 @@ export const RemoveTodo = (props: IRemoveTodoProps) => {
 
     return(
         <>
-            <button onClick={() => {handleClick(props.todo.task)}}>x</button>
+            <button className="button__remove material-symbols-outlined" onClick={() => {handleClick(props.todo.task)}}>delete</button>
         </>
     );
 };
