@@ -6,13 +6,13 @@ import { SortTodos } from "./SortTodos";
 interface ITodosProps {
     todos: Todo[],
     checkTodo: (checkedTodo: string) => void,
-    newTodos: (newTodos: Todo[]) => void;
+    updateTodos: (newTodos: Todo[]) => void;
 };
 
 export const Todos = (props: ITodosProps) => {
 
     const changeTodos = (newTodos: Todo[]) => {
-        props.newTodos(newTodos);
+        props.updateTodos(newTodos);
     };
 
     const checkTodo = (checkedTodo: string) => {
