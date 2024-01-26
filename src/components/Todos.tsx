@@ -1,6 +1,7 @@
 import { Todo } from "../models/Todo"
 import { RemoveTodo } from "./RemoveTodo";
 import { ShowTodo } from "./ShowTodo";
+import { SortTodos } from "./SortTodos";
 
 interface ITodosProps {
     todos: Todo[],
@@ -22,6 +23,7 @@ export const Todos = (props: ITodosProps) => {
 
     return (
         <>
+            < SortTodos sortTodos={changeTodos} />
             {props.todos.map((todo) => {
                 return (
                     <>
