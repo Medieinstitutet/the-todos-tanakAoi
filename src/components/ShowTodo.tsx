@@ -17,10 +17,7 @@ export const ShowTodo = (props: IShowTodoProps) => {
     const removeTodo = (newTodos: Todo[]) => {
         props.removeTodo(newTodos)
     }
-
     
-
-
     return (
         <>
             <li className={props.todo.isDone ? "item item--done" : "item"} key={props.todo.task}>

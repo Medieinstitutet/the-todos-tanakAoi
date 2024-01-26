@@ -35,7 +35,7 @@ export const SortTodos = (props: ISortTodosProps) => {
                     <option value="dueDate">Due date</option>
                     <option value="priority">Priority</option>
                 </select>
-                <button className="sort__button" onClick={handleClick}>Sort</button>
+                <button className="button button__sort" onClick={handleClick}>Sort</button>
             </div>
         </>
     )
