@@ -1,5 +1,4 @@
 import { Todo } from "../models/Todo"
-import { RemoveTodo } from "./RemoveTodo";
 import { ShowTodo } from "./ShowTodo";
 import { SortTodos } from "./SortTodos";
 
@@ -25,8 +24,7 @@ export const Todos = (props: ITodosProps) => {
             {props.todos.map((todo) => {
                 return (
                     <>
-                        < ShowTodo todo={todo} checkTodo={checkTodo} />
-                        < RemoveTodo todo={todo} removeTodo={changeTodos} />
+                        < ShowTodo todo={todo} checkTodo={checkTodo} removeTodo={changeTodos} />
                     </>
                 );
             })}

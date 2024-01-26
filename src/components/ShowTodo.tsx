@@ -1,9 +1,11 @@
 import { Todo } from "../models/Todo"
 import { CheckTodo } from "./CheckTodo";
+import { RemoveTodo } from "./RemoveTodo";
 
 interface IShowTodoProps {
     todo: Todo,
-    checkTodo: (checkedTodo: string) => void
+    checkTodo: (checkedTodo: string) => void,
+    removeTodo: (newTodos: Todo[]) => void
 };
 
 export const ShowTodo = (props: IShowTodoProps) => {
@@ -11,6 +13,10 @@ export const ShowTodo = (props: IShowTodoProps) => {
     const checkTodo = (checkedTodo: string) => {
         props.checkTodo(checkedTodo);
     };
+
+    const removeTodo = (newTodos: Todo[]) => {
+        props.removeTodo(newTodos)
+    }
 
     return (
         <>
@@ -21,6 +27,7 @@ export const ShowTodo = (props: IShowTodoProps) => {
                 <input className="item__priority" type="range" min="1" max="5" step="1" value={props.todo.priority} readOnly />
                 <div>
                     < CheckTodo todo={props.todo} checkTodo={checkTodo} />
+                    < RemoveTodo todo={props.todo} removeTodo={removeTodo}/>
                 </div>
             </li>
         </>
