@@ -1,20 +1,21 @@
 import { Todo } from "../models/Todo"
 import { RemoveTodo } from "./RemoveTodo";
 import { ShowTodo } from "./ShowTodo";
+import { SortTodos } from "./SortTodos";
 
 interface ITodosProps {
     todos: Todo[],
     checkTodo: (checkedTodo: string) => void,
-    newTodos: (newTodos: Todo[]) => void;
+    updateTodos: (newTodos: Todo[]) => void;
 };
 
 export const Todos = (props: ITodosProps) => {
 
-    const changeTodos = (newTodos: Todo[]) => {
+    const updateTodos = (newTodos: Todo[]) => {
         if( newTodos ) {
-            props.newTodos(newTodos);
-        };
-    };
+            props.updateTodos(newTodos)
+        }
+    }
 
     const checkTodo = (checkedTodo: string) => {
         props.checkTodo(checkedTodo);
@@ -22,11 +23,12 @@ export const Todos = (props: ITodosProps) => {
 
     return (
         <>
+            < SortTodos todos={props.todos} sortTodos={updateTodos} />
             {props.todos.map((todo) => {
                 return (
                     <>
                         < ShowTodo todo={todo} checkTodo={checkTodo} />
-                        < RemoveTodo todo={todo} newTodos={changeTodos} />
+                        < RemoveTodo todo={todo} removeTodos={updateTodos} />
                     </>
                 );
             })}

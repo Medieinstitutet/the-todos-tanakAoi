@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './App.css'
+import './App.scss'
 import { Todo } from './models/Todo'
 import { Todos } from './components/Todos'
 import { AddTodo } from './components/AddTodo'
@@ -9,13 +9,13 @@ function App() {
   const [todos, setTodos] = useState<Todo[]>(
     JSON.parse(localStorage.getItem("todos") || "[]")
   );
-
-  const changeTodos = (newTodos: Todo[]) => {
-    setTodos(newTodos);
-  };
   
   const addNewTodo = (newTodo: Todo) => {
     setTodos([...todos, newTodo]);
+  };
+
+  const updateTodos = (newTodos: Todo[]) => {
+    setTodos(newTodos);
   };
 
   const toggleChecked = (checkedTask: string) => {
@@ -29,17 +29,17 @@ function App() {
       })
     )
   }
-
+  
   localStorage.setItem("todos", JSON.stringify(todos));
   
   return (
-    <>
+    <div className='container'>
       <h1 key="title">TO DO LIST</h1>
-      <ul>
-        < Todos todos={todos} newTodos={changeTodos} checkTodo={toggleChecked} key="todos" />
+      <ul className='list'>
+        < Todos todos={todos} checkTodo={toggleChecked} updateTodos={updateTodos} />
       </ul>
       < AddTodo addTodo={addNewTodo} key="addtodo" />
-    </>
+    </div>
   );
 };
 

@@ -35,7 +35,7 @@ export const AddTodo = (props: IAddTodoProps) => {
     return (
         <form onSubmit={handleSubmit}>
             <input type="text" name="task" value={createdTodo.task} onChange={handleChange} />
-            <input type="date" name="deadline" value={createdTodo.deadline} onChange={handleChange} />
+            <input type="date" name="dueDate" value={createdTodo.dueDate} onChange={handleChange} />
             <input type="range" name="priority" min="1" max="5" step="1" value={createdTodo.priority} onChange={handleChange} />
             <button>Save</button>
         </form>
