@@ -23,7 +23,8 @@ export const CheckTodo = (props: IChangeTodoProps) => {
 
     return(
         <label className="item__checked">
-            <input type="checkbox" name={props.todo.task} checked={props.todo.isDone} onChange={handleChange} /><span className="material-symbols-outlined">check_box_outline_blank</span>
+            <input type="checkbox" name={props.todo.task} checked={props.todo.isDone} onChange={handleChange} />
+            <span id="checkbox" className="material-symbols-outlined">{props.todo.isDone ? "check_box" : "check_box_outline_blank"}</span>
         </label>
     )
 }
