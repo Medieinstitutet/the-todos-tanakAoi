@@ -2,7 +2,6 @@ import { ChangeEvent } from "react"
 import { Todo } from "../models/Todo"
 
 interface ISortTodosProps {
-    todos: Todo[],
     sortTodos: (sortedTodos: Todo[]) => void
 }
 
@@ -19,8 +18,7 @@ export const SortTodos = (props: ISortTodosProps) => {
         }
     
         if( e.target.value === "priority" ) {
-        //   setSortedTodos(sortedTodos.sort((a, b) => a.priority < b.priority ? 1: -1 ))
-          newTodos = todos.sort((a:Todo, b: Todo) => a.dueDate < b.dueDate ? 1 : -1 )
+          newTodos = todos.sort((a:Todo, b: Todo) => a.priority < b.priority ? 1 : -1 )
         }
 
     }

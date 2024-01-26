@@ -11,11 +11,9 @@ interface ITodosProps {
 
 export const Todos = (props: ITodosProps) => {
 
-    const updateTodos = (newTodos: Todo[]) => {
-        if( newTodos ) {
-            props.updateTodos(newTodos)
-        }
-    }
+    const changeTodos = (newTodos: Todo[]) => {
+        props.updateTodos(newTodos);
+    };
 
     const checkTodo = (checkedTodo: string) => {
         props.checkTodo(checkedTodo);
@@ -23,12 +21,12 @@ export const Todos = (props: ITodosProps) => {
 
     return (
         <>
-            < SortTodos todos={props.todos} sortTodos={updateTodos} />
+            < SortTodos sortTodos={changeTodos} />
             {props.todos.map((todo) => {
                 return (
                     <>
                         < ShowTodo todo={todo} checkTodo={checkTodo} />
-                        < RemoveTodo todo={todo} removeTodos={updateTodos} />
+                        < RemoveTodo todo={todo} removeTodo={changeTodos} />
                     </>
                 );
             })}

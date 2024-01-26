@@ -2,7 +2,7 @@ import { Todo } from "../models/Todo"
 
 interface IRemoveTodoProps {
     todo: Todo,
-    removeTodos: (newTodos: Todo[]) => void;
+    removeTodo: (newTodos: Todo[]) => void;
 };
 
 export const RemoveTodo = (props: IRemoveTodoProps) => {
@@ -12,7 +12,7 @@ export const RemoveTodo = (props: IRemoveTodoProps) => {
         const todos = JSON.parse(localStorage.getItem("todos") || "[]");
         const newTodos = todos.filter((todo: Todo) => todo.task !== todoToBeRemoved );
 
-        props.removeTodos(newTodos);
+        props.removeTodo(newTodos);
     };
 
     return(
