@@ -12,9 +12,7 @@ interface ITodosProps {
 export const Todos = (props: ITodosProps) => {
 
     const changeTodos = (newTodos: Todo[]) => {
-        if( newTodos ) {
-            props.newTodos(newTodos);
-        };
+        props.newTodos(newTodos);
     };
 
     const checkTodo = (checkedTodo: string) => {
@@ -28,7 +26,7 @@ export const Todos = (props: ITodosProps) => {
                 return (
                     <>
                         < ShowTodo todo={todo} checkTodo={checkTodo} />
-                        < RemoveTodo todo={todo} newTodos={changeTodos} />
+                        < RemoveTodo todo={todo} removeTodo={changeTodos} />
                     </>
                 );
             })}
