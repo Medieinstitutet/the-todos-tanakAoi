@@ -12,9 +12,9 @@ export const CheckTodo = (props: IChangeTodoProps) => {
 
         if( e.target.nextElementSibling !== null ) {
             if ( e.target.checked === true ) {
-                e.target.nextElementSibling.textContent = "Not Done"
+                e.target.nextElementSibling.textContent = "check_box"
             } else {
-                e.target.nextElementSibling.textContent = "Done"
+                e.target.nextElementSibling.textContent = "check_box_outline_blank"
             }
         }
 
@@ -23,7 +23,7 @@ export const CheckTodo = (props: IChangeTodoProps) => {
 
     return(
         <label className="item__checked">
-            <input type="checkbox" name={props.todo.task} checked={props.todo.isDone} onChange={handleChange} /><span>Done</span>
+            <input type="checkbox" name={props.todo.task} checked={props.todo.isDone} onChange={handleChange} /><span className="material-symbols-outlined">check_box_outline_blank</span>
         </label>
     )
 }

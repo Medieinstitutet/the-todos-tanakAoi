@@ -13,6 +13,10 @@
   --accucent-color: #6caeb1;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -25,16 +29,23 @@ h1 {
   font-family: var(--font-serif);
 }
 
+p {
+  margin: 0;
+}
+
 button {
+  padding: 0;
   font-family: var(--font-serif);
   border: none;
-  // background-color: transparent;
-  background-color: rgb(255, 255, 176); // temp
+  background-color: transparent;
   cursor: pointer;
 }
 
+label {
+  height: 0;
+}
+
 .list {
-  background-color: rgb(255, 188, 188); // temp
   list-style: none;
   display: flex;
   flex-direction: column;
@@ -42,21 +53,56 @@ button {
 }
 
 .item {
-  background-color: rgb(190, 190, 255); // temp
-  padding: 0.8rem 1.5rem;
+  background-color: var(--color-light);
+  margin: 1rem 3rem;
+  padding: 1rem 2rem;
   font-size: var(--font-size-s);
+  border-radius: 8px;
+  box-shadow: 0px 2px 20px -5px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 1.5rem;
+
+  &--done {
+    opacity: 0.6;
+  }
+
+  & div {
+    display: flex;
+    gap: 1.5rem;
+  }
 
   &__date {
     font-size: var(--font-size-xs);
-    align-self: flex-start;
   }
 
   &__task {
     font-size: var(--font-size-m);
+  }
+
+  &__priority {
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    background: rgb(59,161,255);
+    background: linear-gradient(90deg, rgba(59,161,255,1) 0%, rgba(128,255,96,1) 25%, rgba(236,245,55,1) 50%, rgba(255,149,32,1) 75%, rgba(255,41,41,1) 100%);
+    height: 14px;
+    width: 100%;
+    border-radius: 10px;
+    border: solid 2px var(--color-light);
+    outline: 0; 
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none; 
+      background: transparent;
+      border: 2px solid rgb(255, 255, 255);
+      width: 24px;
+      height: 24px;
+      border-radius: 50%; 
+      box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15); // 影
+    }
   }
 
   &__checked {
@@ -64,19 +110,26 @@ button {
     
     & input {
       display: none;
-
-      &:checked + span {
-        background-color: #606060;
-      }
     }
 
     & span {
-      color: var(--color-light);
-      background-color: var(--accucent-color);
-      font-size: var(--font-size-s);
-      padding: 8px 12px;
-      border-radius: 10px;
+      font-size: var(--font-size-l);
+      color: var(--color-dark);
+
+      &:hover {
+        color: #d93f3f;
+      }
     }
 
   }
+
+  .button__remove {
+    font-size: var(--font-size-l);
+    color: var(--color-dark);
+
+    &:hover {
+      color: #d93f3f;
+    }
+  }
+
 }

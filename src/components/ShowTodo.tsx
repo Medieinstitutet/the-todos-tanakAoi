@@ -18,9 +18,12 @@ export const ShowTodo = (props: IShowTodoProps) => {
         props.removeTodo(newTodos)
     }
 
+    
+
+
     return (
         <>
-            <li className="item" key={props.todo.task}>
+            <li className={props.todo.isDone ? "item item--done" : "item"} key={props.todo.task}>
                 <span className="item__date">created: {props.todo.date}</span>
                 <p className="item__task">{props.todo.task}</p>
                 <p className="item__due-date">Due date: {props.todo.dueDate}</p>
